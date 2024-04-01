@@ -23,17 +23,17 @@ const comparePassword=async (password,hashedPassword)=>{
 
 const registerNewUser=async(req,res)=>{
     try{
-       const {name,email,phone,password,address}=req.body;
+       const {name,email,phone,password,answer,address}=req.body;
        //validation
-       if(!name||!email||!phone||!password||!address)
-       return res.status(400).send({success:false,message:"All fields are required",newUser});
+       if(!name||!email||!phone||!password||!answer||!address)
+       return res.status(400).send({success:false,message:"All fields are required"});
        //check existing user
        const existingUser=await Register.findOne({email});
        if(existingUser)
-       return res.status(400).send({success:false,message:"A user with this email is allready registered",newUser});
+       return res.status(400).send({success:false,message:"A user with this email is all ready registered"});
        //creating user
        const hashedPassword=await hashPassword(password);
-       const user=new Register({name,email,phone,password:hashedPassword,address});
+       const user=new Register({name,email,phone,password:hashedPassword,answer,address});
        const newUser=await user.save();
        res.status(201).send({success:true,message:"Register successfully",newUser});
     }
@@ -73,6 +73,36 @@ const loginUser=async (req,res)=>{
     }
 }
 
+//Reset Password
+const forgetController=async (req,res)=>{
+    try{
+    const {email,answer,newPassword}=req.body;
+    if(!email||!answer||!newPassword)
+    return res.status(400).send({ success:false,
+                                  message:"All fields are required"});
+    const user=await Register.findOne({email});
+    if(!user){
+        return res.status(400).send({success:false,
+                                     message:"Invalid input field"});
+    }
+    const hashed=await hashPassword(newPassword);
+    const newUserPassword=await Register.findByIdAndUpdate({_id:user._id},{password:hashed});
+    if(newUserPassword){
+    res.status(200).send({ success:true,
+                           message:"Password reset successfully"
+                          });
+    }else{
+        res.status(401).send({success:false,message:"Something went wrong"+newUserPassword});
+    } 
+    }
+    catch (error){
+        res.status(500).send({
+            success:false,
+            message:"Server Error:"+error
+        });
+    }
+}
+
 //Check for token
 const checkToken=async (req,res)=>{
     try{
@@ -83,4 +113,4 @@ const checkToken=async (req,res)=>{
     }
 }
 
-module.exports={registerNewUser,loginUser,checkToken};
+module.exports={registerNewUser,loginUser,checkToken,forgetController};

@@ -23,6 +23,11 @@ const registerSchema=mongoose.Schema({
         minlength:8,
         trim:true
     },
+    answer:{
+        type:String,
+        required:true,
+        trim:true
+    },
     address:{
         type:String,
         required:true,

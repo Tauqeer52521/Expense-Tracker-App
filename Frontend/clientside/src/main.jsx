@@ -11,6 +11,7 @@ import Login from './pages/Auth/Login.jsx';
 import FinancialTracking from './pages/Finance/FinancialTracking.jsx';
 import PrivateRoutes from './PrivateRoutes/privateRoute.jsx';
 import PrivateLoginRegister from './PrivateRoutes/private-login-reg.jsx';
+import Forget from './pages/Auth/Forget.jsx';
 
 
 
@@ -24,7 +25,8 @@ const router=createBrowserRouter([
     {path:"/contactus",element:<Contactus/>},
     {path:"",element:<PrivateLoginRegister/>,children:[
     {path:"/register",element:<Register/>},
-    {path:"/login",element:<Login/>}
+    {path:"/login",element:<Login/>},
+    {path:"/forget",element:<Forget/>}
     ]},
     {path:"*",element:<PageNotFound/>}
    ]}]);

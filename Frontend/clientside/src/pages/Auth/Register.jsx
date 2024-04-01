@@ -10,17 +10,18 @@ const Register=()=>{
     const email=useRef();
     const phone=useRef();
     const password=useRef();
+    const answer=useRef();
     const address=useRef();
 
-    console.log(import.meta.env.VITE_REACT_APP_API);
-    
     const handleOnSubmit=async (event)=>{
         event.preventDefault();
         try{
-            const {data}=await axios.post(`${import.meta.env.VITE_REACT_APP_API}/api/v1/register-user`,{name:name.current.value,
+            const {data}=await axios.post(`${import.meta.env.VITE_REACT_APP_API}/api/v1/register-user`,
+               {name:name.current.value,
                 email:email.current.value,
                 phone:phone.current.value,
                 password:password.current.value,
+                answer:answer.current.value,
                 address:address.current.value});
                 if(data?.success){
                     toast.success("Register Successfully");
@@ -34,18 +35,10 @@ const Register=()=>{
             console.log(error);
             toast.error("Something went wrong");
         }
-        
-        console.log({name:name.current.value,
-                    email:email.current.value,
-                    phone:phone.current.value,
-                    password:password.current.value,
-                    address:address.current.value});
-                    //toast.success("Register Successfully");
-                   /// console.log(process.env);
     }
 
-    return(
-<Layout>
+return(
+ <Layout>
   <form className="form-box" onSubmit={handleOnSubmit}>
   <div className="d-flex flex-column form-container">
     <h1 className="form-heading">Hello, Register Now!</h1>
@@ -63,6 +56,9 @@ const Register=()=>{
       <input type="password" ref={password} className="form-control input-field" id="exampleInputPassword1" placeholder="Enter Password" required/>
     </div>
     <div className="mb-3">
+      <input type="text" ref={answer} className="form-control input-field" id="exampleInputAnswer1" placeholder="Enter your favourite Sport" aria-describedby="emailHelp" required/>
+    </div>
+    <div className="mb-3">
       <input type="text" ref={address} className="form-control input-field" id="exampleInputAddress1" placeholder="Enter your Address" aria-describedby="emailHelp" required/>
     </div>
     <div className="mb-3 form-check">
@@ -71,9 +67,9 @@ const Register=()=>{
     </div>
     <button type="submit" className="btn submit-button">Submit</button>
   </div>
-</form>
+ </form>
 </Layout>
-    );
+);
 }
 
 export default Register;
