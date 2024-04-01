@@ -26,16 +26,16 @@ const registerNewUser=async(req,res)=>{
        const {name,email,phone,password,address}=req.body;
        //validation
        if(!name||!email||!phone||!password||!address)
-       return res.status(400).send("All fields are required");
+       return res.status(400).send({success:false,message:"All fields are required",newUser});
        //check existing user
        const existingUser=await Register.findOne({email});
        if(existingUser)
-       return res.status(400).send("A user with this email is allready registered");
+       return res.status(400).send({success:false,message:"A user with this email is allready registered",newUser});
        //creating user
        const hashedPassword=await hashPassword(password);
        const user=new Register({name,email,phone,password:hashedPassword,address});
        const newUser=await user.save();
-       res.status(201).send(newUser);
+       res.status(201).send({success:true,message:"Register successfully",newUser});
     }
     catch (error){
         res.status(500).send("Server Error:" + error);
@@ -47,13 +47,13 @@ const loginUser=async (req,res)=>{
     try{
        const {email,password}=req.body;
        if(!email||!password)
-       return res.status(400).send("All fields are required");
+       return res.status(400).send({success:false,message:"All fields are required"});
        const user=await Register.findOne({email});
        if(!user) 
-       return res.status(400).send("Incorrect login field");
+       return res.status(400).send({success:false,message:"Incorrect login field"});
        const match=await comparePassword(password,user.password);
        if(!match)
-       return res.status(400).send("Incorrect login field");
+       return res.status(400).send({success:false,message:"Incorrect login field"});
        const token=JWT.sign({_id:user._id},process.env.JWT_SECRET_KEY,{expiresIn:'7d'}); 
        res.status(200).send({
         success: true,

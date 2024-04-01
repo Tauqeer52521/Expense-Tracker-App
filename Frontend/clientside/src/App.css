@@ -1,0 +1,122 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height:100vh;
+    min-width: 100vw;
+    color:white;
+    background: linear-gradient(120deg,#121212, #08161b, #141515) ;
+    overflow-x: hidden;
+}
+
+
+.orbs{
+    position:absolute;
+    background-color: rgb(5, 252, 252);
+    border-radius: 100%;
+    width:40vw;
+    height:60vh;
+    box-shadow:5px 5px 20px rgb(239, 52, 52) ;
+    filter:blur(60vw);
+    animation:15s linear 0s infinite alternate none running circleMovement;
+}
+
+@keyframes circleMovement {
+  from{
+    top:0;
+    left:0;
+  } 
+  to{
+    top:60vh;
+    left:120vh;
+  } 
+}
+
+.orbs{
+        pointer-events: none;
+}
+
+/*******************HEader**************************************/
+
+.nav-header{
+    padding-right: 24px;
+    padding-left: 30px;
+    box-shadow: 0px 8px 12px rgb(201, 197, 197);
+    width:100vw;
+    height:4.5rem;
+    background-color: rgb(202, 233, 237) !important;
+}
+
+
+.navbar-collapse.show {
+    background-color: lightblue; /* Set your desired background color */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-top: 0.2rem;
+}
+
+.header-brand-link{
+    font-weight: 500;
+    font-size: 24px;
+    color:rgb(48, 63, 76);
+}
+
+.head-title-icon{
+    margin-right:6px;
+    margin-bottom: 8px;
+    font-size: 30px;
+}
+.header-link{
+    font-size: 26px;
+    color:rgb(104, 119, 133);
+    margin-left:16px !important;
+}
+
+.active{
+    border-bottom: 2px solid rgb(93, 86, 86);
+}
+
+/******************************Footer*******************************/
+.footer{
+    background-color: rgb(8, 73, 97);
+    display:flex;
+    height:6rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    color:rgb(225, 211, 165) !important;
+}
+
+.footer-link-container{
+    display:flex;
+    gap:12px;
+}
+
+.footer-link{
+    font-size: 24px;
+    text-decoration: none !important;
+    color:rgb(232, 214, 173) !important;
+}
+
+.footer-link:hover{
+    color:rgb(22, 33, 43) !important;
+}
+
+/********************Spinner************************/
+.vh-100 {
+    min-height: 100vh;
+}
+
+.spinner-text {
+    font-size: 24px;
+    color: #f5ebe9;
+    text-align: center;
+}
+
+.spinner-border {
+    margin-top: 1rem; /* Adjust as needed */
+}
