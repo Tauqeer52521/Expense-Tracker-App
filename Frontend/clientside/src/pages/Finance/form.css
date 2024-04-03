@@ -1,0 +1,56 @@
+/* CSS for form */
+.form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* CSS for input controls */
+  .input-control-form {
+    margin-bottom: 20px;
+  }
+  
+  .input-control-form input[type="text"],
+  .input-control-form input[type="number"],
+  .input-control-form input[type="date"],
+  .input-control-form textarea,
+  .input-control-form select {
+    width: 250px;
+    padding: 10px;
+    border: 3px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  /* CSS for select dropdown */
+  .selects select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 30px; /* for arrow icon */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+  
+  /* CSS for submit button */
+  .submit-btn {
+    background-color: #e96797; 
+    color: #fff;
+    border: none;
+    font-size: 20px !important;
+    border-radius: 25px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color:#418f51;
+  }
+  

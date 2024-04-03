@@ -29,7 +29,7 @@ const Header=()=>{
             <Link className="navbar-brand header-brand-link" to="/"><span className="head-title-icon"><RiMoneyEuroBoxFill /></span>Expense Tracker App</Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link header-link active"  to="/">Home</Link>
+                <Link className="nav-link header-link"  to="/">Home</Link>
               </li>
              
               {!auth.user?

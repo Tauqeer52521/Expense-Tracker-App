@@ -15,8 +15,7 @@ useEffect(()=>{
     else setOk(false);
     }
     if(auth?.token) checkAuth();
-},[auth?.token]);
-console.log(ok);
+    },[auth?.token]);
 return( 
     ok ? <Outlet/> :<Spinner path={'/'}/>
 );

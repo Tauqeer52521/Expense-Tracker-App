@@ -25,7 +25,6 @@ const Login=()=>{
                     setAuth({...auth,user:data.user,token:data.token});
                     localStorage.setItem('auth',JSON.stringify(data));
                     const redirectPath = location.state || prevLocation || '/';
-                    console.log(redirectPath);
                     navigate(redirectPath);
                 }
                 else{

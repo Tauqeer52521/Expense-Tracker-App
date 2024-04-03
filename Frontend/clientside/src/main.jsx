@@ -12,6 +12,10 @@ import FinancialTracking from './pages/Finance/FinancialTracking.jsx';
 import PrivateRoutes from './PrivateRoutes/privateRoute.jsx';
 import PrivateLoginRegister from './PrivateRoutes/private-login-reg.jsx';
 import Forget from './pages/Auth/Forget.jsx';
+import Dashboard from './pages/Finance/Dashboard.jsx';
+import Transaction from './pages/Finance/Transaction.jsx';
+import Incomes from './pages/Finance/income/Incomes.jsx';
+import Expenses from './pages/Finance/Expenses.jsx';
 
 
 
@@ -19,7 +23,12 @@ const router=createBrowserRouter([
     {path:"/",element:<App/>, children:[
     {path:"/",element:<Home/>},
     {path:"/financial-tracking",element:<PrivateRoutes/>,children:[
-    {path:"",element:<FinancialTracking/>}
+    {path:"/financial-tracking",element:<FinancialTracking/>,children:[
+    {path:"/financial-tracking/dashboard",element:<Dashboard/>},
+    {path:"/financial-tracking/transaction",element:<Transaction/>},
+    {path:"/financial-tracking/incomes",element:<Incomes/>},
+    {path:"/financial-tracking/expenses",element:<Expenses/>},
+    ]}
     ]},
     {path:"/aboutus",element:<Aboutus/>},
     {path:"/contactus",element:<Contactus/>},

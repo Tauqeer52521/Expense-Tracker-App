@@ -12,6 +12,8 @@ const AuthContextProvider=({children})=>{
         user:null,
         token:""
     });
+
+    const [active,setActive]=useState('1');
    //this will use to set the previous location of page so that after logout when we again login i redirect the same page. 
     const [prevLocation,setPrevLocation]=useState("");
     useEffect(()=>{
@@ -24,7 +26,7 @@ const AuthContextProvider=({children})=>{
     axios.defaults.headers.common["Authorization"]=auth?.token;
 
     return(
-        <AuthContext.Provider value={{auth,setAuth,prevLocation,setPrevLocation}}>
+        <AuthContext.Provider value={{auth,setAuth,prevLocation,setPrevLocation,active,setActive}}>
             {children}
         </AuthContext.Provider>
     );
