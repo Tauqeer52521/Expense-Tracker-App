@@ -39,18 +39,18 @@
   
   /* CSS for submit button */
   .submit-btn {
-    background-color: #e96797; 
+    background-color: #e96797;
+    height:3rem; 
     color: #fff;
     border: none;
     font-size: 20px !important;
     border-radius: 25px;
-    padding: 12px 20px;
-    font-size: 16px;
+    padding: 6px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
   .submit-btn:hover {
-    background-color:#418f51;
+    background-color:#0ac730;
   }
   

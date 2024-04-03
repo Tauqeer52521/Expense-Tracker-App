@@ -1,10 +1,10 @@
-.income-item-content{
+.finance-item-content{
     display:flex;
     flex-direction: column;
     gap:2rem;
     }
  
-.income-inner-content{
+.finance-inner-content{
     background-color: rgb(240, 243, 207);
     display:flex;
     width:100%;
@@ -27,7 +27,7 @@
     color:rgb(21, 21, 21);
 }
 
-.income-detail{
+.finance-detail{
     display:flex;
     flex:1;
     flex-direction: column;
@@ -45,7 +45,7 @@
   }
   
 
-.income-time{
+.finance-time{
     display:flex;
     justify-content: space-between;
     align-items: baseline;
