@@ -8,7 +8,6 @@ export const GlobalContext=createContext();
 const GlobalContextProvider=({children})=>{
     const [incomes,setIncomes]=useState([]);
     const [expenses,setExpenses]=useState([]);
-    const [error,setError]=useState([]);
 
     const getIncomes=async ()=>{
         try{
@@ -19,7 +18,6 @@ const GlobalContextProvider=({children})=>{
         }
         catch(error){
             console.log(error);
-            setError(error);
         }
     }
     
@@ -32,7 +30,6 @@ const GlobalContextProvider=({children})=>{
         }
         catch(error){
             console.log(error);
-            setError(error)
         }
         getIncomes();
     }
@@ -43,7 +40,6 @@ const GlobalContextProvider=({children})=>{
         }
         catch (error){
             console.log(error);
-            setError(error);
         }
         getIncomes();
     }
@@ -65,7 +61,6 @@ const GlobalContextProvider=({children})=>{
         }
         catch(error){
             console.log(error);
-            setError(error);
         }
     }
     
@@ -73,12 +68,11 @@ const GlobalContextProvider=({children})=>{
         try{
         const {data}=await axios.post(`${import.meta.env.VITE_REACT_APP_API}/api/v1//add-expense`,expense);
         if(!data?.success){
-           toast.error(data.message);
+          toast.error(data.message);
         }
         }
         catch(error){
             console.log(error);
-            setError(error)
         }
         getExpenses();
     }
@@ -89,7 +83,6 @@ const GlobalContextProvider=({children})=>{
         }
         catch (error){
             console.log(error);
-            setError(error);
         }
         getExpenses();
     }
@@ -102,6 +95,17 @@ const GlobalContextProvider=({children})=>{
         return sum;
     }
 
+    const totalBalance=()=>{
+        return totalIncome()-totalExpense() ;
+    }
+
+    const transactionHistory=()=>{
+        const history=[...incomes,...expenses];
+        history.sort((a,b)=>{
+            return new Date(b.createdAt) - new Date(a.createdAt);
+        });
+        return history.slice(0,4);
+    }
     return(
         <GlobalContext.Provider value={{
                                         addIncome,
@@ -114,6 +118,8 @@ const GlobalContextProvider=({children})=>{
                                         getExpenses,
                                         deleteExpense,
                                         totalExpense,
+                                        totalBalance,
+                                        transactionHistory
                                         }}>
             {children}
         </GlobalContext.Provider>

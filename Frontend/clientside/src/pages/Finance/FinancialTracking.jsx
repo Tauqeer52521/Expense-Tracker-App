@@ -5,11 +5,11 @@ import Sidebar from "./Sidebar";
 const FinancialTracking=()=>{
     return(
         <Layout>
-            <div className="row">
-                <div className="col-md-3">
+            <div className="main-container">
+                <div className="sidbar-box">
                    <Sidebar/>
                 </div>
-                <div className="col-md-9">
+                <div className="body-container">
                    <Outlet/>
                 </div>
             </div>

@@ -46,7 +46,7 @@ const Header=()=>{
                 <Link className="nav-link header-link"  onClick={handleLogout}>LogOut</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link header-link" to="/financial-tracking">Financial-Tracking</Link>
+                <Link className="nav-link header-link" to="/finance/tracking">Financial-Tracking</Link>
               </li>
               </>}
             </ul>

@@ -22,12 +22,12 @@ import Expenses from './pages/Finance/Expense/Expenses.jsx';
 const router=createBrowserRouter([
     {path:"/",element:<App/>, children:[
     {path:"/",element:<Home/>},
-    {path:"/financial-tracking",element:<PrivateRoutes/>,children:[
-    {path:"/financial-tracking",element:<FinancialTracking/>,children:[
-    {path:"/financial-tracking/dashboard",element:<Dashboard/>},
-    {path:"/financial-tracking/transaction",element:<Transaction/>},
-    {path:"/financial-tracking/incomes",element:<Incomes/>},
-    {path:"/financial-tracking/expenses",element:<Expenses/>},
+    {path:"/finance",element:<PrivateRoutes/>,children:[
+    {path:"/finance/tracking",element:<FinancialTracking/>,children:[
+    {path:"/finance/tracking",element:<Dashboard/>},
+    {path:"/finance/tracking/transaction",element:<Transaction/>},
+    {path:"/finance/tracking/incomes",element:<Incomes/>},
+    {path:"/finance/tracking/expenses",element:<Expenses/>},
     ]}
     ]},
     {path:"/aboutus",element:<Aboutus/>},

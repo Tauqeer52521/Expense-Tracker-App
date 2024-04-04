@@ -18,6 +18,7 @@ const IncomeForm=()=>{
 
         const handleOnSubmit=(e)=>{
             e.preventDefault();
+            if(inputState.amount>=0){
             addIncome(inputState);
             setInputState({
                 title:'',
@@ -26,6 +27,7 @@ const IncomeForm=()=>{
                 category:'',
                 description:''
             });
+        }else alert("The amount must be non negative Integer!");
         }
     return(
         <>

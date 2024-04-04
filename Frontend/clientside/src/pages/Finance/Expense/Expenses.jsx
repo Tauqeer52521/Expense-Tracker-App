@@ -13,7 +13,7 @@ const Expenses=()=>{
     return(
         <div className="finance-container">
             <h1>Expenses</h1>
-            <h1 className='total-finance' style={{height:"300px"}}>Total Expenses:<span style={{color:'red'}}>${totalExpense()}</span></h1>
+            <h1 className='total-finance' style={{minHeight:"80px"}}>Total Expenses:<span style={{color:'red'}}>${totalExpense()}</span></h1>
             <div className="finance-content">
                 <div className="form-content">
                     <ExpenseForm/>

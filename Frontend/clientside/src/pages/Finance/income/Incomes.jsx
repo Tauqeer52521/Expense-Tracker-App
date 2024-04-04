@@ -13,7 +13,7 @@ const Incomes=()=>{
     return(
         <div className="finance-container">
             <h1>Incomes</h1>
-            <h1 className='total-finance' style={{height:"300px"}}>Total Incomes:<span style={{color:'green'}}>${totalIncome()}</span></h1>
+            <h1 className='total-finance' style={{minHeight:"80px"}}>Total Incomes:<span style={{color:'green'}}>${totalIncome()}</span></h1>
             <div className="finance-content">
                 <div className="form-content">
                     <IncomeForm/>

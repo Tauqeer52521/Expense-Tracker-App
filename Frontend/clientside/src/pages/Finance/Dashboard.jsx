@@ -1,10 +1,67 @@
+import { useContext, useEffect } from 'react';
 import './finance.css'
+import { GlobalContext } from '../../context/GlobalContext';
+import  Chart from '../../components/Chart'
 
 const Dashboard=()=>{
+    const {incomes,getIncomes,expenses,getExpenses,totalIncome,totalExpense,totalBalance,transactionHistory}=useContext(GlobalContext);
+    const [...history]=transactionHistory();
+    useEffect(()=>{
+       getIncomes();
+       getExpenses();
+    },[]);
     return(
         <div className="finance-container">
-           <h1> Dashboard</h1>
-        </div>
+           <h1>Transaction History</h1>
+           <div className='transaction-container'>
+              <div className='dashboard-container'>
+                <div className='chart-container'>
+                  <Chart/>
+                </div>
+              <div className='amount-detail'>
+                  <div className='total-amount'>
+                      <h2>Total Incomes</h2> 
+                      <p className='amount-value'>${totalIncome()}</p>
+                  </div>
+                  <div className='total-amount'>
+                      <h2>Total Expenses </h2>
+                      <p className='amount-value'>${totalExpense()}</p>
+                  </div>
+                  <div className='total-amount'>
+                      <h2>Total Balance </h2>
+                      <span  className='amount-value' style={{color:(totalBalance()<0?'red':'green')}}>${totalBalance()}</span>
+                  </div>
+                </div>
+             </div>
+           <div className='transaction-detail'> 
+            <div className="history-container">
+              <h2>Recent History</h2>
+              {history.map((data)=>(
+                <div key={data._id} className="recent-data">
+                     <p style={{color:data.type==='Expense'?'red':'green'}}>{data.title}</p>
+                     <p style={{color:data.type==='Expense'?'red':'green'}}>
+                        {data.type==='Expense'?`-$${data.amount}`:`+$${data.amount}`}
+                    </p>
+                </div>
+              ))}
+          </div>
+          <div className="salary-container">
+              <h2 className='salary-title'>Min <span>Salary</span> Max</h2>
+              <div className='salary-value'>
+                 <p>${Math.min(...incomes.map(income=>income.amount))}</p>
+                 <p>${Math.max(...incomes.map(income=>income.amount))}</p>
+              </div>
+          </div>
+          <div className="expense-container">
+              <h2 className='expense-title'>Min <span>Expense</span> Max</h2>
+              <div className='expense-value'>
+                 <p>${Math.min(...expenses.map(expense=>expense.amount))}</p>
+                 <p>${Math.max(...expenses.map(expense=>expense.amount))}</p>
+              </div>
+          </div>
+          </div> 
+         </div>
+     </div>
     );
 }
 

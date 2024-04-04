@@ -1,10 +1,17 @@
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { MenuItems } from "../../utils/MenuItems";
 import {Link} from 'react-router-dom'
 import './sidebar.css'
 const Sidebar=()=>{
     const {auth,active,setActive}=useContext(AuthContext);
+    useEffect(() => {
+        const storedActive = localStorage.getItem("active");
+        if (storedActive !== null) {
+          setActive(parseInt(storedActive));
+        }
+      }, [setActive]);
+    
 return(
     <div className="sidebar-container">
         <div className="user-profile">
@@ -16,8 +23,8 @@ return(
         </div>
         <div className="menu-items d-flex flex-column">
                 {MenuItems.map((item)=>(
-                <Link className={`sidebar-link ${active===item.id?'active-link':''}`}
-                 key={item.id} to={item.link} onClick={()=>setActive(item.id)}>
+                <Link className={`sidebar-link ${active === item.id ? "active-link":""}`}
+                 key={item.id} to={item.link} onClick={()=>{setActive(item.id);localStorage.setItem('active',item.id)}}>
                         {item.icon}
                       <span>{item.title}</span>
                 </Link>
@@ -28,3 +35,5 @@ return(
 }
 
 export default Sidebar;
+
+

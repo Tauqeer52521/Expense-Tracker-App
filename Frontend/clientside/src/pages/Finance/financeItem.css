@@ -11,8 +11,14 @@
     padding:1rem;
     gap:2rem;
     border:4px solid gray;
+    box-shadow: 3px 4px 6px rgb(234, 197, 152) inset;
     border-radius: 20px;
+    transition: transform 0.3s;
 }
+
+.finance-inner-content:hover {
+    transform: scale(1.05); /* Scale up the element on hover */
+  }
 
 .category-icon{
     width:70px;

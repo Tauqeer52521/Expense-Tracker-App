@@ -8,7 +8,7 @@ const Layout=({children})=>{
     return(
   <div className="d-flex flex-column" style={{minHeight:"100vh"}}>
       <Header/>
-        <Orbs/>
+        {/* <Orbs/> */}
         <ToastContainer/>
         <div className="flex-grow-1">
            {children}
