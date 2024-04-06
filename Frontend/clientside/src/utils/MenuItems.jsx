@@ -9,18 +9,12 @@ export const MenuItems=[
     },
     {
         id:2,
-        title:'Transactions',
-        icon:transactions,
-        link:'/finance/tracking/transaction'
-    },
-    {
-        id:3,
         title:'Incomes',
         icon:trend,
         link:'/finance/tracking/incomes'
     },
     {
-        id:4,
+        id:3,
         title:'Expenses',
         icon:expenses,
         link:'/finance/tracking/expenses'

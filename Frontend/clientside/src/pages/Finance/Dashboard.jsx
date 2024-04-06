@@ -2,9 +2,11 @@ import { useContext, useEffect } from 'react';
 import './finance.css'
 import { GlobalContext } from '../../context/GlobalContext';
 import  Chart from '../../components/Chart'
+import { AuthContext } from '../../context/AuthContext';
 
 const Dashboard=()=>{
     const {incomes,getIncomes,expenses,getExpenses,totalIncome,totalExpense,totalBalance,transactionHistory}=useContext(GlobalContext);
+    const {auth}=useContext(AuthContext);
     const [...history]=transactionHistory();
     useEffect(()=>{
        getIncomes();
@@ -12,7 +14,7 @@ const Dashboard=()=>{
     },[]);
     return(
         <div className="finance-container">
-           <h1>Transaction History</h1>
+           <h1>{auth?.user?.name&&auth?.user?.name.toUpperCase()}'S Dashboard</h1>
            <div className='transaction-container'>
               <div className='dashboard-container'>
                 <div className='chart-container'>

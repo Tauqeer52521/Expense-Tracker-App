@@ -13,7 +13,6 @@ import PrivateRoutes from './PrivateRoutes/privateRoute.jsx';
 import PrivateLoginRegister from './PrivateRoutes/private-login-reg.jsx';
 import Forget from './pages/Auth/Forget.jsx';
 import Dashboard from './pages/Finance/Dashboard.jsx';
-import Transaction from './pages/Finance/Transaction.jsx';
 import Incomes from './pages/Finance/income/Incomes.jsx';
 import Expenses from './pages/Finance/Expense/Expenses.jsx';
 import GoogleMap from './components/GoogleMap.jsx';
@@ -27,7 +26,6 @@ const router=createBrowserRouter([
     {path:"/finance",element:<PrivateRoutes/>,children:[
     {path:"/finance/tracking",element:<FinancialTracking/>,children:[
     {path:"/finance/tracking",element:<Dashboard/>},
-    {path:"/finance/tracking/transaction",element:<Transaction/>},
     {path:"/finance/tracking/incomes",element:<Incomes/>},
     {path:"/finance/tracking/expenses",element:<Expenses/>},
     {path:"/finance/tracking/profile",element:<Profile/>},
