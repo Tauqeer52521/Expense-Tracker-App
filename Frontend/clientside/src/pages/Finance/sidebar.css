@@ -17,6 +17,7 @@
     gap:1rem;
     margin-bottom: 2rem ;
     align-items: center;
+    text-decoration: none;
 }
 
 .user-profile img{

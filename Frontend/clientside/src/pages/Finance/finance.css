@@ -29,6 +29,8 @@
     flex-direction: column;
     color:rgb(108, 107, 107);
     overflow: auto;
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: #888 #f1f1f1;
 }
 
 
@@ -171,4 +173,80 @@
     box-shadow: 3px 4px 6px rgb(234, 197, 152) inset;
     background-color: rgb(249, 246, 243);
     border-radius: 10px;
+}
+
+/***********************************************Profile*********************************************/
+
+.profile-container{
+    display:flex;
+    gap:2rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+@media (max-width:1000px){
+    .profile-container{
+        flex-wrap: wrap;
+    }
+}
+.profile-img-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    height:150px;
+    width:150px;
+}
+
+.profile-detail-container{
+    width:480px;
+    display:flex;
+    flex-direction: column;
+    gap:2rem;
+    padding:10px;
+    padding-bottom: 30px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.profile-detail-item{
+    display:flex;
+    gap:1rem;
+}
+
+.profile-photo{
+    width:130px;
+    height:130px;
+    border-radius: 100%;
+}
+
+.detail-type{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width:80px;
+    font-weight: 500;
+}
+
+.profile-value{
+    flex:1;
+    border:none;
+    outline:none;
+    display:flex;
+    flex-wrap: wrap;
+    /* pointer-events: none; */
+}
+
+.edit-profile-btn{
+    padding: 10px 20px;
+    background-color: #460362;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-profile-btn:hover{
+    background-color: #27132f;
 }

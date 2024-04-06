@@ -11,7 +11,7 @@ const Contactus=()=>{
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    feedback: ''
+    message: ''
   });
 
   const handleChange=name=>e=>{

@@ -14,13 +14,13 @@ const Sidebar=()=>{
     
 return(
     <div className="sidebar-container">
-        <div className="user-profile">
+        <Link to='/finance/tracking/profile' className="user-profile">
             <img src="https://static.vecteezy.com/system/resources/previews/024/183/502/original/male-avatar-portrait-of-a-young-man-with-a-beard-illustration-of-male-character-in-modern-color-style-vector.jpg" alt="user-avtar" />
             <div className="user-name">
-                <h5>{auth?.user?.name.toUpperCase()}</h5>
+                <h5>{auth?.user?.name&&auth?.user?.name.toUpperCase()}</h5>
                 <p>Your Profile!</p> 
             </div> 
-        </div>
+        </Link>
         <div className="menu-items d-flex flex-column">
                 {MenuItems.map((item)=>(
                 <Link className={`sidebar-link ${active === item.id ? "active-link":""}`}

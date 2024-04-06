@@ -113,4 +113,19 @@ const checkToken=async (req,res)=>{
     }
 }
 
-module.exports={registerNewUser,loginUser,checkToken,forgetController};
+//Update User profile
+const updateUserProfile=async (req,res)=>{
+    try{
+       const {name,email,phone,address} =req.body;
+       if(!name||!phone||!address)
+       return res.status(400).send({success:false,message:"All fields are required"});
+       const user=await Register.updateOne({email},{name,phone,address});
+       const  updatedUser=await Register.findOne({email});
+       res.status(200).send({success:true,message:"Profile Updated Successfully",updatedUser});
+    }
+    catch(error){
+       res.status(500).send("Server Error:" + error);
+    }
+}
+
+module.exports={registerNewUser,loginUser,checkToken,forgetController,updateUserProfile};

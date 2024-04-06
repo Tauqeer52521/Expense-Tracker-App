@@ -73,7 +73,7 @@
     border-radius: 5px;
   }
   
-  button {
+ .contact-form button {
     padding: 10px 20px;
     background-color: #460362;
     color: #fff;
@@ -82,7 +82,7 @@
     cursor: pointer;
   }
   
-  button:hover {
+ .contact-form button:hover {
     background-color: #22133f;
   }
   
