@@ -3,10 +3,12 @@ import { RiMoneyEuroBoxFill } from "react-icons/ri";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { toast } from "react-toastify";
+import { GlobalContext } from "../../context/GlobalContext";
 
 
 const Header=()=>{
     const {auth,setAuth,setPrevLocation}=useContext(AuthContext);
+    const {setIncomes,setExpenses,setUser_Id}=useContext(GlobalContext);
     const navigate=useNavigate();
     const location=useLocation();
 
@@ -15,8 +17,10 @@ const Header=()=>{
        if(location.pathname!=='/register'&&location.pathname!=='/login')
        setPrevLocation(location.pathname);
        localStorage.removeItem("auth");
+       setIncomes([]);
+       setExpenses([]);
+       setUser_Id("");
        toast.success("LogOut Successfully"); 
-       console.log(location.pathname);
        navigate('/login'); 
     }
     return(

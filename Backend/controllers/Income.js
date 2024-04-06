@@ -3,14 +3,14 @@ const Incomes=require('../models/incomeModel');
 
 const addIncome=async (req,res)=>{
 try{
-const {title,amount,date,category,description}=req.body;
-if(!title||!amount||!date||!category||!description){
+const {title,amount,date,category,description,user_id}=req.body;
+if(!title||!amount||!date||!category||!description||!user_id){
    return  res.status(400).send({success:false,message:"All fields are required"});
 }
 if(amount<0||!amount==='Number'){
 return res.status(400).send({success:false,message:"Amount must be non negative Integer"});
 }
-const income=new Incomes({title,amount,date,category,description});
+const income=new Incomes({title,amount,date,category,description,user_id});
 const createIncome=await income.save();
 res.status(201).send({success:true,message:"Income added Succesfully",createIncome});
 }
@@ -21,7 +21,8 @@ res.status(500).send("Server Error: " + error);
 
 const getIncomes=async (req,res)=>{
     try{
-       const allIncomes=await Incomes.find().sort({"createdAt":-1});
+       const {user_id}=req.query;
+       const allIncomes=await Incomes.find({user_id}).sort({"createdAt":-1});
        res.status(200).send({success:true,message:"Income rendered Successfully",allIncomes});
     }
     catch(error){

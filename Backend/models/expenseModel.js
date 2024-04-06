@@ -33,6 +33,11 @@ const expenseSchema=mongoose.Schema({
         required:true,
         trim:true,
         maxlength:50
+    },
+    user_id:{
+        type: String,
+        ref: 'Register',
+        required:true
     }
 },{timestamps:true});
 

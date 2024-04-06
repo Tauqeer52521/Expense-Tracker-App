@@ -1,17 +1,26 @@
 import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { AuthContext } from "./AuthContext";
+
 
 
 export const GlobalContext=createContext();
 
 const GlobalContextProvider=({children})=>{
+    const {auth}=useContext(AuthContext);
     const [incomes,setIncomes]=useState([]);
     const [expenses,setExpenses]=useState([]);
+    const [user_id,setUser_Id]=useState("");
+    
 
+    useEffect(()=>{
+        setUser_Id(auth?.user?._id);
+    },[user_id]);
+    
     const getIncomes=async ()=>{
         try{
-            const {data}=await axios.get(`${import.meta.env.VITE_REACT_APP_API}/api/v1/get-incomes`);
+            const {data}=await axios.get(`${import.meta.env.VITE_REACT_APP_API}/api/v1/get-incomes?user_id=${user_id}`);
             if(data?.success){
                 setIncomes(data.allIncomes);
             }  
@@ -45,8 +54,9 @@ const GlobalContextProvider=({children})=>{
     }
     
     const totalIncome=()=>{
+        const filteredIncomes = incomes.filter(income => income.user_id === user_id);
         let sum=0;
-        incomes.forEach((income)=>{
+        filteredIncomes.forEach((income)=>{
             sum+=income.amount;
         });
         return sum;
@@ -54,7 +64,7 @@ const GlobalContextProvider=({children})=>{
 
     const getExpenses=async ()=>{
         try{
-            const {data}=await axios.get(`${import.meta.env.VITE_REACT_APP_API}/api/v1/get-expenses`);
+            const {data}=await axios.get(`${import.meta.env.VITE_REACT_APP_API}/api/v1/get-expenses?user_id=${user_id}`);
             if(data?.success){
                 setExpenses(data.allExpenses);
             }  
@@ -88,19 +98,22 @@ const GlobalContextProvider=({children})=>{
     }
     
     const totalExpense=()=>{
+        const filteredExpenses = expenses.filter(expense => expense.user_id === user_id);
         let sum=0;
-        expenses.forEach((expense)=>{
+        filteredExpenses.forEach((expense)=>{
             sum+=expense.amount;
         });
         return sum;
     }
 
     const totalBalance=()=>{
-        return totalIncome()-totalExpense() ;
+        return totalIncome()-totalExpense();
     }
 
     const transactionHistory=()=>{
-        const history=[...incomes,...expenses];
+        const filteredExpenses = expenses.filter(expense => expense.user_id === user_id);
+        const filteredIncomes = incomes.filter(income => income.user_id === user_id);
+        const history=[...filteredIncomes,... filteredExpenses];
         history.sort((a,b)=>{
             return new Date(b.createdAt) - new Date(a.createdAt);
         });
@@ -110,16 +123,19 @@ const GlobalContextProvider=({children})=>{
         <GlobalContext.Provider value={{
                                         addIncome,
                                         incomes,
+                                        setIncomes,
                                         getIncomes,
                                         deleteIncome,
                                         totalIncome,
                                         addExpense,
                                         expenses,
+                                        setExpenses,
                                         getExpenses,
                                         deleteExpense,
                                         totalExpense,
                                         totalBalance,
-                                        transactionHistory
+                                        transactionHistory,
+                                        setUser_Id
                                         }}>
             {children}
         </GlobalContext.Provider>

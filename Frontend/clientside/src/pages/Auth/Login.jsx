@@ -5,10 +5,12 @@ import axios from 'axios'
 import './register.css'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { GlobalContext } from "../../context/GlobalContext";
 const Login=()=>{
     const navigate=useNavigate();
     const location=useLocation();
     const {auth,setAuth,prevLocation}=useContext(AuthContext);
+    const {setUser_Id}=useContext(GlobalContext);
 
     const email=useRef();
     const password=useRef();
@@ -23,6 +25,7 @@ const Login=()=>{
                 if(data?.success){
                     toast.success("Login Successfully");
                     setAuth({...auth,user:data.user,token:data.token});
+                    setUser_Id(data.user._id);
                     localStorage.setItem('auth',JSON.stringify(data));
                     const redirectPath = location.state || prevLocation || '/';
                     navigate(redirectPath);

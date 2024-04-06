@@ -1,15 +1,18 @@
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../../context/GlobalContext";
 import '../form.css'
+import { AuthContext } from "../../../context/AuthContext";
 
 const ExpenseForm=()=>{
+        const {auth}=useContext(AuthContext);
         const {addExpense}=useContext(GlobalContext);
         const [inputState,setInputState]=useState({
             title:'',
             amount:'',
             date:'',
             category:'',
-            description:''
+            description:'',
+            user_id:auth?.user?._id
         });
         const {title,amount,date,category,description}=inputState;
         const handleInput=name=>e=>{
@@ -25,7 +28,8 @@ const ExpenseForm=()=>{
                 amount:'',
                 date:'',
                 category:'',
-                description:''
+                description:'',
+                user_id:auth?.user?._id
             });
         }else alert("The amount must be non negative Integer");
         }

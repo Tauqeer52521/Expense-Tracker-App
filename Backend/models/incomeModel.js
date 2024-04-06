@@ -33,6 +33,11 @@ const incomeSchema=mongoose.Schema({
         required:true,
         maxlength:50,
         trim:true
+    },
+    user_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Register',
+        required:true
     }
 },{timestamps:true});
 
