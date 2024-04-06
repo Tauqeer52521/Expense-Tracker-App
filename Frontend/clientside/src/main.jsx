@@ -16,6 +16,7 @@ import Dashboard from './pages/Finance/Dashboard.jsx';
 import Transaction from './pages/Finance/Transaction.jsx';
 import Incomes from './pages/Finance/income/Incomes.jsx';
 import Expenses from './pages/Finance/Expense/Expenses.jsx';
+import GoogleMap from './components/GoogleMap.jsx';
 
 
 
@@ -37,6 +38,7 @@ const router=createBrowserRouter([
     {path:"/login",element:<Login/>},
     {path:"/forget",element:<Forget/>}
     ]},
+    {path:"/google-map",element:<GoogleMap/>},
     {path:"*",element:<PageNotFound/>}
    ]}]);
 
