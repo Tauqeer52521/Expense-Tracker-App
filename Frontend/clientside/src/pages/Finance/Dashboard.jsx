@@ -50,15 +50,15 @@ const Dashboard=()=>{
           <div className="salary-container">
               <h2 className='salary-title'>Min <span>Salary</span> Max</h2>
               <div className='salary-value'>
-                 <p>${Math.min(...incomes.map(income=>income.amount))}</p>
-                 <p>${Math.max(...incomes.map(income=>income.amount))}</p>
+                 <p>${incomes.length>0?Math.min(...incomes.map(income=>income.amount)):0}</p>
+                 <p>${incomes.length>0?Math.max(...incomes.map(income=>income.amount)):0}</p>
               </div>
           </div>
           <div className="expense-container">
               <h2 className='expense-title'>Min <span>Expense</span> Max</h2>
               <div className='expense-value'>
-                 <p>${Math.min(...expenses.map(expense=>expense.amount))}</p>
-                 <p>${Math.max(...expenses.map(expense=>expense.amount))}</p>
+                 <p>${expenses.length>0?Math.min(...expenses.map(expense=>expense.amount)):0}</p>
+                 <p>${expenses.length>0?Math.max(...expenses.map(expense=>expense.amount)):0}</p>
               </div>
           </div>
           </div> 
