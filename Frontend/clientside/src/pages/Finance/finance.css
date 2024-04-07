@@ -9,17 +9,17 @@
     flex:1;
 }
 
-@media (max-width:600px){
+@media (max-width:750px){
     .main-container{
-        flex-wrap: wrap;
+        flex-direction: column;
     }
     .sidebar-box{
-        width:600px;
+        min-width:600px;
     }
 }
 
 .finance-container{
-    margin:2.5rem 2.5rem 2.5rem 1.5rem;
+    margin:2.5rem 1.5rem 2.5rem 1.5rem;
     padding:3%;
     height:100vh;
     background-color:rgb(208, 242, 248);
@@ -208,6 +208,27 @@
     padding-bottom: 30px;
     background-color: white;
     border-radius: 10px;
+}
+
+
+@media (max-width:500px){
+    .profile-detail-container{
+       width:400px;
+    }
+}
+
+
+@media (max-width:400px){
+    .profile-detail-container{
+       width:300px;
+    }
+}
+
+
+@media (max-width:300px){
+    .profile-detail-container{
+       width:200px;
+    }
 }
 
 .profile-detail-item{
