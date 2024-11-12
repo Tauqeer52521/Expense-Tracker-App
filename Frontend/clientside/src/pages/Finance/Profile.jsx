@@ -2,7 +2,8 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import './finance.css'
 import { AuthContext } from '../../context/AuthContext';
 import { GlobalContext } from '../../context/GlobalContext';
-import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
 const Profile=()=>{
     const {auth,setAuth}=useContext(AuthContext);
@@ -105,6 +106,7 @@ const Profile=()=>{
                   </div>
                 </div>
           </div>
+          <ToastContainer/>
         </div>
        
     );

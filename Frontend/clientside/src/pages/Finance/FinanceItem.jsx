@@ -1,3 +1,5 @@
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 import { bitcoin, book, calender, card, circle, clothing, comment, dollar, food, freelance, medical, money, piggy, stocks, takeaway,tv, trash, trend, users, yt } from "../../utils/Icons";
 import './financeItem.css'
 
@@ -65,6 +67,7 @@ const FinanceItems=({finances,deleteFinance})=>{
                 </div> 
             </div>
              ))}
+             <ToastContainer/>
         </div>
 
     );

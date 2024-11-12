@@ -1,6 +1,8 @@
 import { Outlet } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import Sidebar from "./Sidebar";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 const FinancialTracking=()=>{
     return(
@@ -13,6 +15,7 @@ const FinancialTracking=()=>{
                    <Outlet/>
                 </div>
             </div>
+            <ToastContainer/>
         </Layout>
     ); 
 }

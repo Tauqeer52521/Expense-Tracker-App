@@ -34,7 +34,7 @@ const deleteIncome=async (req,res)=>{
     try{
        const _id=req.params.id;
        const deletedIncome=await Incomes.findByIdAndDelete({_id});
-       res.status(200).send(deletedIncome);
+       res.status(200).send({success:true,message:"Income deleted successfully",deletedIncome});
     }
     catch(error){
         res.status(500).send("Server Error:" + error);

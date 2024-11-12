@@ -30,7 +30,7 @@ const registerNewUser=async(req,res)=>{
        //check existing user
        const existingUser=await Register.findOne({email});
        if(existingUser)
-       return res.status(400).send({success:false,message:"A user with this email is all ready registered"});
+       return res.status(400).send({success:false,message:"A user with this email is allready registered"});
        //creating user
        const hashedPassword=await hashPassword(password);
        const user=new Register({name,email,phone,password:hashedPassword,answer,address});

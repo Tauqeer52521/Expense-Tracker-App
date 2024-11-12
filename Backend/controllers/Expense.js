@@ -33,7 +33,7 @@ const deleteExpense=async (req,res)=>{
     try{
        const _id=req.params.id;
        const deletedExpense=await Expenses.findByIdAndDelete({_id});
-       res.status(200).send(deletedExpense);
+       res.status(200).send({success:true,message:"Expense Deleted successfully",deletedExpense});
     }
     catch (error){
         res.status(500).send("Server Error" + error);

@@ -2,7 +2,8 @@ import { Link, useLocation, useNavigate} from "react-router-dom";
 import { RiMoneyEuroBoxFill } from "react-icons/ri";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from "react-toastify";
 import { GlobalContext } from "../../context/GlobalContext";
 
 
@@ -56,6 +57,7 @@ const Header=()=>{
             </ul>
           </div>
         </div>
+        <ToastContainer/>
       </nav>
     );
 }

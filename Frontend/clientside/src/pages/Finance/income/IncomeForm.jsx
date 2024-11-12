@@ -2,6 +2,9 @@ import { useContext, useState } from "react";
 import { GlobalContext } from "../../../context/GlobalContext";
 import '../form.css'
 import { AuthContext } from "../../../context/AuthContext";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+
 
 const IncomeForm=()=>{
         const {auth}=useContext(AuthContext);
@@ -63,6 +66,7 @@ const IncomeForm=()=>{
             </div>
             <button type="submit" className="submit-btn">+Add Income</button>
        </form>
+       <ToastContainer/>
        </>
     );
 }

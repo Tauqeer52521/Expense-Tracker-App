@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import Layout from "../../components/Layout/Layout";
-import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {toast, ToastContainer} from 'react-toastify';
 import axios from 'axios'
 import './register.css'
 import { useNavigate } from "react-router-dom";
@@ -68,6 +69,7 @@ return(
     <button type="submit" className="btn submit-button">Submit</button>
   </div>
  </form>
+ <ToastContainer/>
 </Layout>
 );
 }

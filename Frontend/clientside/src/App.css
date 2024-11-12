@@ -8,7 +8,7 @@ body{
     min-height:100vh;
     min-width: 100vw;
     color:white;
-    background: linear-gradient(120deg,#121212, #08161b, #141515) ;
+    background: linear-gradient(120deg,#121212, #0b1315, #001212) ;
     overflow-x: hidden;
     display: flex;
 }
@@ -48,12 +48,12 @@ body{
     box-shadow: 0px 8px 12px rgb(201, 197, 197);
     min-width:100vw;
     height:4.5rem;
-    background-color: rgb(202, 233, 237) !important;
+    background-color: rgb(81, 212, 245) !important;
 }
 
 
 .navbar-collapse.show {
-    background-color: lightblue; /* Set your desired background color */
+    background-color: rgb(113, 186, 211); /* Set your desired background color */
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     margin-top: 0.2rem;
@@ -72,7 +72,7 @@ body{
 }
 .header-link{
     font-size: 26px;
-    color:rgb(104, 119, 133);
+    color:rgb(67, 76, 85);
     margin-left:16px !important;
 }
 
@@ -89,7 +89,7 @@ body{
 }
 /******************************Footer*******************************/
 .footer{
-    background-color: rgb(14, 63, 58);
+    background-color: rgb(12, 27, 26);
     display:flex;
     height:8rem;
     min-width: 100vw;
@@ -150,7 +150,7 @@ body{
 }
 
 .home-container {
-    background-color: rgba(166, 237, 234, 0.8);
+    background-color: rgba(235, 224, 194, 0.8);
     padding: 30px;
     text-align: center;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
@@ -212,7 +212,7 @@ li {
 }
 
 .about-title {
-    background-color: rgb(143, 231, 251);
+    background-color: rgb(138, 234, 243);
     text-align: center;
     font-size: 40px;
     color: #121330;

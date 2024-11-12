@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { GlobalContext } from "../../../context/GlobalContext";
 import '../form.css'
 import { AuthContext } from "../../../context/AuthContext";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 const ExpenseForm=()=>{
         const {auth}=useContext(AuthContext);
@@ -63,6 +65,7 @@ const ExpenseForm=()=>{
             </div>
             <button type="submit" className="submit-btn">+Add Expense</button>
        </form>
+       <ToastContainer/>
        </>
     );
 }

@@ -23,6 +23,7 @@ const GlobalContextProvider=({children})=>{
             const {data}=await axios.get(`${import.meta.env.VITE_REACT_APP_API}/api/v1/get-incomes?user_id=${user_id}`);
             if(data?.success){
                 setIncomes(data.allIncomes);
+                //toast.success(data.message);
             }  
         }
         catch(error){
@@ -34,7 +35,9 @@ const GlobalContextProvider=({children})=>{
         try{
         const {data}=await axios.post(`${import.meta.env.VITE_REACT_APP_API}/api/v1//add-income`,income);
         if(!data?.success){
-           toast.error(data.message);
+           toast.error('An error occur while adding income');
+        }else{
+            toast.success(data.message);
         }
         }
         catch(error){
@@ -46,6 +49,9 @@ const GlobalContextProvider=({children})=>{
     const deleteIncome=async (id)=>{
         try{
             const {data}=await axios.delete(`${import.meta.env.VITE_REACT_APP_API}/api/v1/delete-income/${id}`);
+            if(data?.success)
+            toast.success(data.message);
+            else toast.error("An error occur while deleting income") 
         }
         catch (error){
             console.log(error);
@@ -77,8 +83,10 @@ const GlobalContextProvider=({children})=>{
     const addExpense=async (expense)=>{
         try{
         const {data}=await axios.post(`${import.meta.env.VITE_REACT_APP_API}/api/v1//add-expense`,expense);
-        if(!data?.success){
-          toast.error(data.message);
+        if(data?.success){
+          toast.success(data.message);
+        }else{
+            toast.error('An error occur while adding expense');
         }
         }
         catch(error){
@@ -90,6 +98,11 @@ const GlobalContextProvider=({children})=>{
     const deleteExpense=async (id)=>{
         try{
             const {data}=await axios.delete(`${import.meta.env.VITE_REACT_APP_API}/api/v1/delete-expense/${id}`);
+            if(data?.success){
+                toast.success(data.message);
+            }else{
+                toast.error("An error occur while deleting expense");
+            }
         }
         catch (error){
             console.log(error);
