@@ -34,33 +34,37 @@ const Register=()=>{
         }
         catch (error){
             console.log(error);
-            toast.error("Something went wrong");
+            if (error.response && error.response.data && error.response.data.message) {
+            toast.error(error.response.data.message);
+            } else {
+              toast.error("Something went wrong");
+             }
         }
     }
 
 return(
  <Layout>
-  <form className="form-box" onSubmit={handleOnSubmit}>
+  <form className="form-box" autoComplete="off" onSubmit={handleOnSubmit}>
   <div className="d-flex flex-column form-container">
     <h1 className="form-heading">Hello, Register Now!</h1>
     <h4 className="form-subheading">We are happy to have you with us</h4>
     <div className="mb-3">
-      <input type="text" ref={name} className="form-control input-field" id="exampleInputName1" placeholder="Enter your Name" aria-describedby="emailHelp" required/>
+      <input type="text" ref={name} autoComplete="off" className="form-control input-field" id="exampleInputName1" placeholder="Enter your Name" aria-describedby="emailHelp" required/>
     </div>
     <div className="mb-3">
-      <input type="email" ref={email} className="form-control input-field" id="exampleInputEmail1" placeholder="Enter your Email" aria-describedby="emailHelp" required/>
+      <input type="email" ref={email} autoComplete="off" className="form-control input-field" id="exampleInputEmail1" placeholder="Enter your Email" aria-describedby="emailHelp" required/>
     </div>
     <div className="mb-3">
-      <input type="text" ref={phone} className="form-control input-field" id="exampleInputPhone1" placeholder="Enter your Phone Number" aria-describedby="emailHelp" required/>
+      <input type="text" ref={phone} autoComplete="off" className="form-control input-field" id="exampleInputPhone1" placeholder="Enter your Phone Number" aria-describedby="emailHelp" required/>
     </div>
     <div className="mb-3">
-      <input type="password" ref={password} className="form-control input-field" id="exampleInputPassword1" placeholder="Enter Password" required/>
+      <input type="password" ref={password} autoComplete="off" className="form-control input-field" id="exampleInputPassword1" placeholder="Enter Password" required/>
     </div>
     <div className="mb-3">
-      <input type="text" ref={answer} className="form-control input-field" id="exampleInputAnswer1" placeholder="Enter your favourite Sport" aria-describedby="emailHelp" required/>
+      <input type="text" ref={answer} autoComplete="off" className="form-control input-field" id="exampleInputAnswer1" placeholder="Enter your favourite Sport" aria-describedby="emailHelp" required/>
     </div>
     <div className="mb-3">
-      <input type="text" ref={address} className="form-control input-field" id="exampleInputAddress1" placeholder="Enter your Address" aria-describedby="emailHelp" required/>
+      <input type="text" ref={address} autoComplete="off" className="form-control input-field" id="exampleInputAddress1" placeholder="Enter your Address" aria-describedby="emailHelp" required/>
     </div>
     <div className="mb-3 form-check">
        <input type="checkbox" className="form-check-input" id="exampleCheck1"/>

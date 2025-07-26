@@ -30,7 +30,7 @@ const Contactus=()=>{
     return(
       <Layout>
         <div className="contact-box">
-            <h1 style={{color:'#EF360D'}}>Contact Us</h1>
+            <h1 style={{color:'#3fafd8ff'}}>Contact Us</h1>
     <div className="contact-container">
      
       <div className="contact-info">

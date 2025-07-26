@@ -81,7 +81,7 @@ const forgetController=async (req,res)=>{
     return res.status(400).send({ success:false,
                                   message:"All fields are required"});
     const user=await Register.findOne({email});
-    if(!user){
+    if(!user||!(user.answer===answer)){
         return res.status(400).send({success:false,
                                      message:"Invalid input field"});
     }
