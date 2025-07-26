@@ -3,8 +3,8 @@ import './App.css'
 import { Outlet } from 'react-router-dom';
 import AuthContextProvider from './context/AuthContext';
 import GlobalContextProvider from './context/GlobalContext';
-import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {

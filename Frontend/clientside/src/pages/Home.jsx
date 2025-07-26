@@ -25,7 +25,7 @@ const Home=()=>{
     </div> 
     <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a2d30e192904561.65e307b0a9bd2.png" style={{width:'100vw'}} alt="home-img" />
     {/* <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/72e414192904561.65e307b0abc0f.png" alt="ghh" style={{width:'100vw'}}/>     */}
-        <ToastContainer/>
+        {/* <ToastContainer/> */}
         </Layout>
     );
 }

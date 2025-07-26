@@ -67,7 +67,7 @@ const FinanceItems=({finances,deleteFinance})=>{
                 </div> 
             </div>
              ))}
-             <ToastContainer/>
+             {/* <ToastContainer/> */}
         </div>
 
     );

@@ -62,7 +62,7 @@ const Forget=()=>{
     <button type="submit" className="btn submit-button">Reset Password</button>
   </div>
 </form>
-<ToastContainer/>
+{/* <ToastContainer/> */}
 </Layout>
     );
 }
